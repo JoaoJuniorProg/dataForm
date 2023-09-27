@@ -10,16 +10,16 @@ const CustomList = ({ title, items, selected, onSelect }: any) => {
             </View>
             <View style={styles.container}>
                 {items.map((item: any) => (
-                    <TouchableOpacity
-                        key={item.id}
-                        style={[styles.item, item === selected ? styles.selectedItem : null]}
-                        onPress={() => onSelect(item)}
-                    >
-                        <View style={styles.iconContainer}>
-                            <FontAwesome5 name={item.icon} size={16} color={item === selected ? 'green' : 'gray'} />
-                        </View>
-                        <Text style={styles.itemText}>{item.name}</Text>
-                    </TouchableOpacity>
+                   <TouchableOpacity
+                   key={item.id}
+                   style={[styles.item, item.id === selected?.id ? styles.selectedItem : null]}
+                   onPress={() => onSelect(item)}
+               >
+                   <View style={styles.iconContainer}>
+                       <FontAwesome5 name={item.icon} size={16} color={item.id === selected?.id ? 'green' : 'gray'} />
+                   </View>
+                   <Text style={styles.itemText}>{item.name}</Text>
+               </TouchableOpacity>
                 ))}
             </View>
         </>

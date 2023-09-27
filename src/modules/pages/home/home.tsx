@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { FontAwesome5, MaterialIcons, Ionicons } from '@expo/vector-icons';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 import { Picker } from '@react-native-picker/picker';
 
 import {
@@ -20,7 +20,8 @@ import { getResources, saveStopData } from '../../../shared/services/methods.ser
 import { useAuth } from '../../../shared/providers/AuthToken';
 
 const HomeScreen: React.FC = () => {
-    const { authToken } = useAuth();
+    const route = useRoute<any>();
+    const { authToken } = route.params;
     const navigation = useNavigation();
     const [machineName, setMachineName] = useState('');
     const [doing, setDoing] = useState('');
@@ -148,7 +149,7 @@ const HomeScreen: React.FC = () => {
             <View style={styles.container}>
                 <View style={styles.headerContainer}>
                     <TouchableOpacity onPress={handleGoBack}>
-                        <Ionicons name={'arrow-back'} size={24} color="gray" />
+                        <Ionicons name={'arrow-back'} size={24} color="green" />
                     </TouchableOpacity>
                     <Text style={styles.headerText}>Registro de Parada</Text>
                 </View>
@@ -159,7 +160,7 @@ const HomeScreen: React.FC = () => {
                         selectedValue={selectedEquipment}
                         onValueChange={(itemValue: any) => setSelectedEquipment(itemValue)}
                         options={equipmentOptions}
-                        />
+                    />
                 </View>
 
                 <View style={styles.doublePickerContainer}>
@@ -248,7 +249,7 @@ const styles = StyleSheet.create({
     },
     contentPicker: {
         width: "100%",
-        padding: 8,
+        // padding: 8,
     },
     doublePickerContainer: {
         flexDirection: 'row',

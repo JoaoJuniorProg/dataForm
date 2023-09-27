@@ -39,7 +39,7 @@ const InitialLogin: React.FC = () => {
         const token = response.data.data.token;
         console.log('Token:', token);
         setAuthToken(token);
-        navigation.navigate('HomeScreen', token);
+        navigation.navigate('HomeScreen', { authToken: token });
       } else {
         setError('Credenciais inválidas');
       }

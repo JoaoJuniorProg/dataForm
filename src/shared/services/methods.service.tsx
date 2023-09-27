@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { setDefaultToken } from '../clients/axios';
 
 const BASE_URL = 'https://job.minhafazenda.ag/mobile/machine';
 
