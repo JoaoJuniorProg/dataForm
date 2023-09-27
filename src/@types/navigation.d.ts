@@ -1,0 +1,3 @@
+type RootSignalsParamList = {
+    InitialLogin: undefined;
+}
